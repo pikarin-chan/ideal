@@ -1,0 +1,4 @@
+services:
+#    imc_ideal.example:
+#        class: imc\IdealBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

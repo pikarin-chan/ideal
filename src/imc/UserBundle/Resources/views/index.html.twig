@@ -1,0 +1,57 @@
+{% extends "::base.html.twig" %}
+{% block title %}Accueil{% endblock %}
+{% block body %}
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+                    <li>Bonjour, {{ app.user }}</li>
+                {% else %}
+                    <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
+                    <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                {% endif %}
+
+                <p><a href="#"></a></p>
+                <p><a href="#"></a></p>
+                <p><a href="#"></a></p>
+            </div>
+            <div class="col-sm-8 text-left">
+                <div class="alert alert-success">
+                    <strong>Site en cours de refonte  </strong>
+                </div>
+                <h1>Bonjour, et bienvenue.</h1>
+                <p>Notre entreprise située en Normandie est spécialisée dans la photographie scolaire sur les départements de l'Eure, de la Seine maritime, de l'Eure et Loir, du Calvados et de l'Orne.</p>
+                <p>Dotés d’un matériel de dernière génération en matière de prises de vue et d’impression numérique, nous vous garantissons des tirages aux couleurs naturelles, éclatantes et d'une parfaite définition.
+
+                <p>Tous nos clichés sont visualisés sur ordinateur dès la prise de vue, ce qui permet à nos photographes scolaires de corriger d’éventuels problèmes d’expressions. L’approche et la relation avec les écoliers de maternelle ou d’élémentaire, ainsi qu’avec les collégiens et lycéens est pour nous primordiale afin d’obtenir les meilleures expressions possibles.</p>
+
+                <p>Soucieux d’économiser votre temps que nous savons précieux et de ne pas compromettre l’organisation du rythme scolaire, notre équipe s’applique à être efficace et rapide.</p>
+
+                <p>Nous avons également à cœur de vous livrer les pochettes commandées dans les meilleurs délais, et à des tarifs très compétitifs.</p>
+
+                <p>N’hésitez pas à nous contacter pour prendre rendez-vous.</p>
+                <hr>
+                <h3>Contact</h3>
+                <p>Mail : <a href="mailto:photoscolaire@ideal-photo.fr?subject=renseignement&body=Votre message"><body link="ffc000">photoscolaire@ideal-photo.fr</body></a></p>
+                <p>- Fixe : 0232099285 <BR>- Portable : 0607839478  </p>
+            </div>
+            <div class="col-sm-2 sidenav">
+                <div class="well">
+                    <p>{% include "::layout.html.twig" %} </p>
+                </div>
+                <div class="well">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        <p></p>
+    </footer>
+
+
+{% endblock %}

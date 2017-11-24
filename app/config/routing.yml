@@ -1,0 +1,19 @@
+imc_user:
+    resource: "@imcUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+imc_ideal:
+    resource: "@imcIdealBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+
+fos_user_group:
+    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
+    prefix: /group
+
+imcUserBundle_admin_users:
+    resource: "@imcUserBundle/Resources/config/routing/user.yml"
+    prefix:   /admin/users

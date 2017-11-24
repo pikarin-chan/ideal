@@ -1,0 +1,126 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}User - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1>User</h1>
+
+    <table class="table table-hover record_properties">
+        <tbody>
+        <tr>
+            <th scope="row">Username</th>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Usernamecanonical</th>
+            <td>{{ user.usernameCanonical }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Email</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Emailcanonical</th>
+            <td>{{ user.emailCanonical }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Enabled</th>
+            <td>{% if user.enabled %}<i class="fa fa-check-square-o"></i>{% else %}<i class="fa fa-square-o"></i>{% endif %}</td>
+        </tr>
+        <tr>
+            <th scope="row">Salt</th>
+            <td>{{ user.salt }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Password</th>
+            <td>{{ user.password }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Lastlogin</th>
+            <td>{{ user.lastLogin|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Locked</th>
+            <td>{% if user.locked %}<i class="fa fa-check-square-o"></i>{% else %}<i class="fa fa-square-o"></i>{% endif %}</td>
+        </tr>
+        <tr>
+            <th scope="row">Expired</th>
+            <td>{% if user.expired %}<i class="fa fa-check-square-o"></i>{% else %}<i class="fa fa-square-o"></i>{% endif %}</td>
+        </tr>
+        <tr>
+            <th scope="row">Expiresat</th>
+            <td>{{ user.expiresAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Confirmationtoken</th>
+            <td>{{ user.confirmationToken }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Passwordrequestedat</th>
+            <td>{{ user.passwordRequestedAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Roles</th>
+            <td>{{ user.roles|join(', ') }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Credentialsexpired</th>
+            <td>{% if user.credentialsExpired %}<i class="fa fa-check-square-o"></i>{% else %}<i class="fa fa-square-o"></i>{% endif %}</td>
+        </tr>
+        <tr>
+            <th scope="row">Credentialsexpireat</th>
+            <td>{{ user.credentialsExpireAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Logincount</th>
+            <td>{{ user.loginCount }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Firstlogin</th>
+            <td>{{ user.firstLogin|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Id</th>
+            <td>{{ user.id }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    {{ form_start(delete_form) }}
+        {{ form_widget(delete_form) }}
+
+        <div class="btn-group record_actions">
+
+            <a class="btn btn-info" href="{{ path('admin_users') }}">
+                <i class="fa fa-list"></i> {{ 'Back to the list'|trans({}, 'admin') }}
+            </a>
+
+            <a class="btn btn-primary" href="{{ path('admin_users_edit', {id: user.id}) }}">
+                <i class="fa fa-edit"></i> {{ 'Edit'|trans({}, 'admin') }}
+            </a>
+            <button class="btn btn-danger" type="submit"><i class="fa fa-trash-o"></i> {{ 'Delete'|trans({}, 'admin') }}</button>
+
+        </div>
+
+        <input name="modal" type="hidden" value="0">
+    {{ form_end(delete_form) }}
+
+    <div id="delete_confirm" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3>{{ 'Confirm delete'|trans({}, 'admin') }}</h3>
+                </div>
+                <div class="modal-body">
+                    <p>{{ 'You are about to delete an item'|trans({}, 'admin') }}, {{ 'this procedure is irreversible'|trans({}, 'admin') }}.</p>
+                    <p>{{ 'Do you want to proceed?'|trans({}, 'admin') }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger">{{ 'Yes'|trans({}, 'admin') }}</button>
+                    <button class="btn btn-default" data-dismiss="modal">{{ 'No'|trans({}, 'admin') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

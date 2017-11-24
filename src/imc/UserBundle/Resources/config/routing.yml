@@ -1,0 +1,15 @@
+imc_user_admin_groups:
+    resource: "@imcUserBundle/Resources/config/routing/group.yml"
+    prefix:   /admin/groups
+
+imc_user_admin_users:
+    resource: "@imcUserBundle/Resources/config/routing/user.yml"
+    prefix:   /admin/users
+
+imc_user_admin_group:
+    resource: "@imcUserBundle/Resources/config/routing/group.yml"
+    prefix:   /admin/group
+
+imc_user_homepage:
+    path:     /
+    defaults: { _controller: imcUserBundle:Default:index }

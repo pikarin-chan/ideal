@@ -1,0 +1,7 @@
+imc_ideal_homepage:
+    path:     /
+    defaults: { _controller: imcIdealBundle:Default:index }
+
+imc_ideal_monespace:
+    path:     /monespace
+    defaults: { _controller: imcIdealBundle:Default:moi }

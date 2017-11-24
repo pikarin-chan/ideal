@@ -1,0 +1,35 @@
+admin_groups:
+    pattern:  /
+    defaults: { _controller: "imcUserBundle:Group:index" }
+
+admin_groups_sort:
+    pattern:  /{field}/{type}/sort
+    defaults: { _controller: "imcUserBundle:Group:sort" }
+    requirements: { type: ASC|DESC }
+
+admin_groups_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "imcUserBundle:Group:show" }
+
+admin_groups_new:
+    pattern:  /new
+    defaults: { _controller: "imcUserBundle:Group:new" }
+
+admin_groups_create:
+    pattern:  /create
+    defaults: { _controller: "imcUserBundle:Group:create" }
+    requirements: { _method: post }
+
+admin_groups_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "imcUserBundle:Group:edit" }
+
+admin_groups_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "imcUserBundle:Group:update" }
+    requirements: { _method: post|put }
+
+admin_groups_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "imcUserBundle:Group:delete" }
+    requirements: { _method: post|delete }

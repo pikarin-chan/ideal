@@ -1,0 +1,4 @@
+services:
+#    imc_user.example:
+#        class: imc\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

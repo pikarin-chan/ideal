@@ -1,0 +1,35 @@
+admin_users:
+    pattern:  /
+    defaults: { _controller: "imcUserBundle:User:index" }
+
+admin_users_sort:
+    pattern:  /{field}/{type}/sort
+    defaults: { _controller: "imcUserBundle:User:sort" }
+    requirements: { type: ASC|DESC }
+
+admin_users_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "imcUserBundle:User:show" }
+
+admin_users_new:
+    pattern:  /new
+    defaults: { _controller: "imcUserBundle:User:new" }
+
+admin_users_create:
+    pattern:  /create
+    defaults: { _controller: "imcUserBundle:User:create" }
+    requirements: { _method: post }
+
+admin_users_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "imcUserBundle:User:edit" }
+
+admin_users_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "imcUserBundle:User:update" }
+    requirements: { _method: post|put }
+
+admin_users_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "imcUserBundle:User:delete" }
+    requirements: { _method: post|delete }
